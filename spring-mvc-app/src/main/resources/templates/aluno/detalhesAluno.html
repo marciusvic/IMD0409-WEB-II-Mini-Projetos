@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Aluno</title>
+</head>
+<body>
+    <h1>Detalhes do Aluno <span th:text="${aluno.primeiroNome}"></span></h1>
+    <div>
+        <p><strong>Nome:</strong> <span th:text="${aluno.primeiroNome} + ' ' + ${aluno.ultimoNome}"></span></p>
+        <p><strong>Curso:</strong> <span th:text="${aluno.curso}"></span></p>
+        <p><strong>Linguagem:</strong> <span th:text="${aluno.linguagem}"></span></p>
+        <p><strong>Email:</strong> <span th:text="${aluno.email}"></span></p>
+        <p><strong>Sistemas Operacionais:</strong></p>
+        <ul>
+            <li th:each="sistema : ${aluno.sistemasOperacionas}" th:text="${sistema}"></li>
+        </ul>
+    </div>
+</body>
+</html>

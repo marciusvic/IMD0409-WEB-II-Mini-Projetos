@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alunos</title>
+
+</head>
+
+<body>
+  <p>Lista de alunos cadastrados </p>
+    <li th:each="aluno : ${alunos}">
+        <span
+            th:text="${aluno.primeiroNome} +' '+ ${aluno.ultimoNome} + ' - Curso:  ' + ${aluno.curso} " />
+    </li>
+  </ul>
+  <br><br>
+  <p>Tabela com as infos</p>
+  <table>
+      <thead>
+        <tr>
+          <th th:text="Nome"></th>
+          <th th:text="Curso"></th>
+          <th th:text="Linguagem"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="aluno: ${alunos}">
+          <td th:text="${aluno.primeiroNome}"></td>
+          <td th:text="${aluno.curso}"></td>
+          <td th:text="${aluno.linguagem}"></td>
+          <td>
+            <span><a th:href="@{'detalhesAluno/' + ${aluno.id}}">Detalhes</a> | <a th:href="@{'deleteAluno/' + ${aluno.id}}">Deletar</a></span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  <br><br>
+  <p>Escolher lista de alunos por Link</p>
+  <p><a href="getListaAlunosPorCurso">Lista de alunos por curso</a> | <a href="getListaAlunosPorLinguagem">Lista de alunos por linguagem</a> | <a href="/aluno/getListaAlunosPorSistema">Lista de alunos por sistema operacional favorito</a></p>
+  <a href="showForm">Formulário de alunos</a>
+  <br><br>
+  <a href="/curso/getListaCursos">Listar cursos</a> | <a href="/curso/showForm">Criar novo curso</a>
+</body>
+
+</html>

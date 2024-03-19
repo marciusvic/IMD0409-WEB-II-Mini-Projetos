@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Cursos</title>
+</head>
+<body>
+    <h1>Lista de Cursos</h1>
+    <ul>
+        <th:block th:each="curso : ${cursos}">
+            <li th:text="${curso.nome}"></li>
+        </th:block>
+    </ul>
+    <a href="showForm">Criar novo curso</a> | <a href="/">Voltar ao início</a>
+</body>
+</html>

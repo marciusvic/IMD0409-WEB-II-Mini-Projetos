@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Alunos por Curso</title>
+</head>
+<body>
+    <h1>Lista de Alunos por Curso</h1>
+    
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Curso</th>
+                <th>Alunos</th>
+                <th>Quantidade</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="entry : ${alunosPorLinguagem}">
+                <td th:text="${entry.key}"></td>
+                <td>
+                    <ul>
+                        <li th:each="aluno : ${entry.value}" th:text="${aluno.primeiroNome + ' ' + aluno.ultimoNome}"></li>
+                    </ul>
+                </td>
+                <td th:text="${entry.value.size()}"></td>
+            </tr>
+        </tbody>
+    </table>
+    <br><br>
+    <span><a href="getListaAlunos">Ver lista de alunos</a> | <a href="showForm">Formulário de alunos</a><br></span>
+</body>
+</html>
