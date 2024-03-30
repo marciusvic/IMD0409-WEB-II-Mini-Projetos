@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Disciplina</title>
+</head>
+<body>
+    <h1>Adicionar Disciplina</h1>
+    <form action="#" th:action="@{/disciplina/addDisciplina}" th:object="${disciplina}" method="post">
+        <p>Nome da Disciplina: <input type="text" th:field="*{descricao}" placeholder="Insira o nome da disciplina" /></p>
+        <p>Código da Disciplina: <input type="text" th:field="*{codigo}" placeholder="Insira o código da disciplina" /></p>
+        <p>Ementa da Disciplina: <textarea th:field="*{ementa}" placeholder="Insira a ementa da disciplina"></textarea></p>
+        <p>Cursos:
+            <select th:field="*{cursos}" multiple="multiple">
+                <option th:each="curso : ${cursos}" th:value="${curso.id}" th:text="${curso.descricao}"></option>
+            </select>
+        </p>
+        <p><input type="submit" value="Adicionar" /></p>
+    </form>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário Avatar</title>
+</head>
+<body>
+    <h1>Formulário Avatar</h1>
+    <form action="/avatar/addAvatar" method="post" th:object="${avatar}">
+        <div>
+            <label for="alunoId">Selecione um aluno:</label>
+            <select id="alunoId" name="alunoId">
+                <option th:each="aluno : ${alunosSemAvatar}" th:value="${aluno.id}" th:text="${aluno.nome}"></option>
+            </select>
+        </div>
+        <div>
+            <label for="nomeFantasia">Nome Fantasia:</label>
+            <input type="text" id="nomeFantasia" name="nomeFantasia" required>
+        </div>
+        <button type="submit">Adicionar Avatar</button>
+    </form>
+</body>
+</html>

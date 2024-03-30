@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alunos</title>
+
+</head>
+
+<style>
+  .delete-botton{
+      color: red;
+      text-decoration: none;
+  }
+</style>
+
+<body>
+    <p>Lista de alunos cadastrados </p>
+    <ul>
+        <li th:each="aluno : ${alunos}">
+            <span th:text="${aluno.nome} + ' - Curso:  ' + ${aluno.curso.descricao} + ', Avatar: ' + ${aluno.avatar}" />
+            <a th:href="@{'deleteAluno/' + ${aluno.id}}" class="delete-botton">Deletar</a>
+        </li>
+    </ul>
+    <br><br>
+    <p>Tabela com as infos</p>
+    <table>
+        <thead>
+          <tr>
+            <th th:text="Nome"></th>
+            <th th:text="Curso"></th>
+            <th th:text="Disciplina"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="aluno: ${alunos}">
+            <td th:text="${aluno.nome}"></td>
+            <td th:text="${aluno.curso.descricao}"></td>
+            <td th:text="${aluno.curso.disciplinas} + ${aluno.disciplinas}"></td>
+          </tr>
+        </tbody>
+      </table>
+    <br><br>
+    <a href="showForm">Formulário de alunos</a> | <a href="/">Menu Principal</a> | <a href="/avatar/getListaAvatares">Lista de avatares</a> <br>
+
+</body>
+
+</html>

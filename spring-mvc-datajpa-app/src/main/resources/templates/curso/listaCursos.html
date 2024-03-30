@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Cursos</title>
+</head>
+
+<style>
+    .delete-botton{
+        color: red;
+        text-decoration: none;
+    }
+    .edit-botton{
+        color: blue;
+        text-decoration: none;
+        margin-left: 10px;
+    }
+</style>
+<body>
+    <h1>Lista de Cursos</h1>
+    <ul>
+        <th:block th:each="curso : ${cursos}">
+            <li>
+                <span th:text="${curso.descricao}"></span>
+                <a th:href="@{'updateCurso/' + ${curso.id}}" class="edit-botton">Editar</a> | <a th:href="@{'deleteCurso/' + ${curso.id}}" class="delete-botton">Deletar</a>
+            </li>
+        </th:block>
+    </ul>
+    <a href="showForm">Criar novo curso</a> | <a href="/">Menu Principal</a>
+</body>
+</html>

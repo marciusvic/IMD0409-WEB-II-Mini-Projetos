@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Avatares</title>
+</head>
+<body>
+    <h1>Lista de Avatares</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome Fantasia</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="avatar : ${avatares}">
+                <td th:text="${avatar.id}"></td>
+                <td th:text="${avatar.nomeFantasia}"></td>
+            </tr>
+        </tbody>
+    </table>
+    <br><br>
+    <a href="showForm">Novo Avatar</a> | <a href="/aluno/getListaAlunos">Lista Alunos</a> | <a href="/">Menu Principal</a>
+</body>
+</html>

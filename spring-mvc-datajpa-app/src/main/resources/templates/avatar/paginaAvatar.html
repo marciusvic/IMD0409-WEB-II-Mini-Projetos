@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Avatar</title>
+</head>
+<body>
+    <h1>Avatar Adicionado com Sucesso</h1>
+    <p>Detalhes do Avatar:</p>
+    <p>ID: <span th:text="${avatar.id}"></span></p>
+    <p>Nome Fantasia: <span th:text="${avatar.nomeFantasia}"></span></p>
+    <p>Aluno: <span th:text="${avatar.aluno.nome}"></span></p>
+
+    <a href="formAvatar">Adicionar outro Avatar</a> | <a href="getListaAvatares">Lista Avatares</a>
+</body>
+</html>
